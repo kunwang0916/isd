@@ -28,11 +28,12 @@
 
 * MVVM try to solve the issue of "Massive View Controller" by adding a `ViewModel` layer between `Model` and `ViewController`
 
-1. MVVM is compatible with your existing MVC architecture.
-1. MVVM makes your apps more testable.
-1. MVVM works best with a binding mechanism.
+  1. MVVM is compatible with your existing MVC architecture.
+  1. MVVM makes your apps more testable.
+  1. MVVM works best with a binding mechanism.
 
 ### VIPER
+
 * [View-Interactor-Presenter-Entity-Routing](https://www.objc.io/issues/13-architecture/viper/)
   ![viper.png](./resource/img/viper.png)
 
@@ -45,7 +46,7 @@
 
 ### RIBs
 
-* [Router-Interactor-Buider]((https://github.com/uber/RIBs)
+* [Router-Interactor-Buider](https://github.com/uber/RIBs)
   * and Presenter, View.
   ![ribs.png](./resource/img/ribs.png)
 
