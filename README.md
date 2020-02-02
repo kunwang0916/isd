@@ -73,13 +73,38 @@ MVC, MVP, MVI, MVVM and VIPER are architecture patterns. RIBs is a framework. Wh
 
 ## Memory Management
 
-### ARC
+[Memory management](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/MemoryManagement.html) in a Cocoa application that doesn’t use garbage collection is based on a reference counting model. When you create or copy an object, its retain count is 1. Thereafter other objects may express an ownership interest in your object, which increments its retain count. The owners of an object may also relinquish their ownership interest in it, which decrements the retain count. When the retain count becomes zero, the object is deallocated (destroyed).
 
-### Retain Cycle
+  ![reference_counting_model.png](./resource/img/reference_counting_model.png)
 
-### Weak / Strong / Unowned
+### Automatic Reference Counting (ARC)
 
-### Garbage Collection (Java)
+ARC inserts the appropriate retains and releases required for reference counting at compile time, no collector process is needed to continually sweep memory and remove unreferenced objects.
+
+### Retain Cycle / Strong Reference Cycles
+
+For a class instance to be fully deallocated under ARC, it needs to be free of all strong references to it. But there is a chance that you could structure your code in such a way that two instances strongly reference each other and therefore never let each other’s reference count drop down to zero.
+
+### Weak and Unowned
+
+There are two ways of resolving Retain Cycle in Swift: weak references and unowned references.
+
+**Weak reference** is used when you know that a reference is allowed to become nil whereas **unowned reference** is used when you are certain that the reference has a longer lifecycle and will never become nil. Since **weak references** can have a value or no value at all, they must be defined as optional variables. An **unowned reference** has to be defined as non-optional since it is assumed to always have a value.
+
+### Garbage Collection
+
+Runtime detects unused objects and object graphs in the background. This happens at intermediate intervals, either after a certain amount of time has passed or when the runtime memory gets low, and not released at that exact moment.
+
+### ARC vs GC
+
+Both GC and ARC aim to free developer from memory management, though **it doesn't completely free you from worrying about memory management.**
+
+* GC is Runtime will ARC is compile-time.
+* ARC is real-time release while frees an object "sometime later".
+* GC can cope with retain cycles while ARC can not.
+* Typically, **garbage collection** has certain disadvantages, including consuming additional resources, performance impacts, possible stalls in program execution, and incompatibility with manual resource management.
+
+* [Garbage Collection vs Automatic Reference Counting](https://medium.com/computed-comparisons/garbage-collection-vs-automatic-reference-counting-a420bd4c7c81)
 
 ## Concurrency
 
