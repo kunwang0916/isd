@@ -3,6 +3,7 @@
 * [Architecture](#Architecture)
 * [Design Pattern](#Design-Pattern)
 * [UI](#UI)
+* [Networking](#Networking)
 * [Communications Patterns](#Communications-Patterns)
 * [Reactive Programming](#Reactive-Programming)
 * [Memory Management](#Memory-Management)
@@ -66,6 +67,54 @@ MVC, MVP, MVI, MVVM and VIPER are architecture patterns. RIBs is a framework. Wh
 ## Design Pattern
 
 ## UI
+
+## Networking
+
+### Architecture Overview
+
+* **Models**: Classes that describe the data models of our application, reflecting the structure of data received from, or sent to, the backend servers.
+* **Parsers**: Responsible for decoding server responses and producing model objects.
+* **Errors**: Objects to represent erroneous server responses.
+* **Client**: Sends requests to backend servers and receives responses.
+* **Services**: Manage logically linked operations (e.g. authentication, managing user related data, analytics, etc).
+
+  ![networking_architecture.png](./resource/img/networking_architecture.png)
+
+### Client-Server Interaction Ways
+
+* Long/short Polling (Client Pull)
+* WebSockets (Server Push)
+* Server-Side Event (Server Push)
+
+#### Short Polling
+
+client send pull request regularly. server will response immediately.
+
+* simple
+* create unnecessary traffic, wasting bandwidth.
+
+#### Long Polling
+
+The server attempts to "hold open" (not immediately reply to) each HTTP request, responding only when there are events to deliver. In this way, there is always a pending request to which the server can reply for the purpose of delivering events as they occur, thereby minimizing the latency in message delivery.
+
+* complex
+* reduce centain traffic, needs more connections.
+
+#### Websocket
+
+A WebSocket is nothing but a persistent connection between the client and the server. This is a communications protocol providing full-duplex communication channels over a single TCP connection.
+
+* increase the complexity, more event handlering
+* better performance
+
+#### Server Side Event
+
+allows the server to asynchronously push the data to the client once the client-server connection is established. The server can then decide to send data whenever a new “chunk” of data is available. It can be considered as a one-way publish-subscribe model.
+
+* Simpler implementation and Data efficiency
+* one-way-communication, need combine with another way.
+
+#### [reference](https://codeburst.io/polling-vs-sse-vs-websocket-how-to-choose-the-right-one-1859e4e13bd9)
 
 ## Communications Patterns
 
