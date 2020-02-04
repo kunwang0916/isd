@@ -116,6 +116,44 @@ allows the server to asynchronously push the data to the client once the client-
 
 #### [reference](https://codeburst.io/polling-vs-sse-vs-websocket-how-to-choose-the-right-one-1859e4e13bd9)
 
+### API Design
+
+#### Pagination
+  
+* Limit/Offset Pagination
+  * `GET /items?limit=20&offset=100`
+  * Pros:
+    * easy to implement.
+    * stateless in server.
+
+  * Cons:
+    * offset has performance issue, when value is too large.
+    * inconsistency if db changed (insert, delete).
+
+  * Good for small data set
+
+* Timebased Pagination
+  * `GET /items?limit=20&created:lte:2018-01-19T00:00:00`
+  * Pros:
+    * with keyset, resolved the db change issue.
+  * Cons:
+    * more than one in same time?
+    * Coupling with Filter and Sorting, increase the complexity to handle it.
+
+  * Good for data has natural with a single natural high cardinality key such as log data.
+
+* Seek/Cursor Pagination
+  * `GET /items?limit=20&cursor=1374004777531007833`
+  * extention of Seek
+  * Pros
+    * No coupling of pagination logic to filter logic.
+    * consistent high performance
+  * Cons
+    * hard to implement when a custom sort order is needed.
+    * If items are deleted from the database, the start_id may not be a valid id.
+
+#### [Filtering, Sorting, and Pagination](https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/)
+
 ## Communications Patterns
 
 ## Reactive Programming
