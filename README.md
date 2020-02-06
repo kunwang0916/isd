@@ -156,6 +156,57 @@ allows the server to asynchronously push the data to the client once the client-
 
 ## Communications Patterns
 
+### Delegation
+
+protocol based 1 to 1 communication.
+
+* Pros:
+  * flexibility, straightforward.
+* Cons:
+  * Coupling between two objects.
+
+### Block / Closure
+
+Similar to the delegation, 1 to 1 communication.
+
+* Pros:
+  * Good readability as response handling logic is in same place.
+* Cons:
+  * need pay attention to retain cycle issue. (memory leak: use `weak` or `unowned`).
+
+### Observation
+
+* Listen to Events or Notifications and execution accordingly.
+* Support 1 to many or many to many communication.
+
+* Notification
+* KVO API
+* Pure Swift Setter
+
+* Pros:
+  * flexibility, allow communicate loosely.
+  * decoupling source and consumer part.
+* Cons:
+  * ony way communication.
+  * need to manage the observer properly.
+  * race condition and thread safty issue.
+  * too complex to debug.
+  * performance issue if process all event without throttling or debouncing.
+
+### Trade off
+
+keep as simple as possible. depends on the follow factors:
+
+* Sender and Recipients numbers
+  * 1 to 1
+  * 1 to many
+  * many to many
+* Commnunication type
+  * one way communication
+  * two way commnunication
+
+* [communication-patterns](https://www.objc.io/issues/7-foundation/communication-patterns/)
+
 ## Reactive Programming
 
 ## Memory Management
