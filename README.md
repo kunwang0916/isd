@@ -209,6 +209,10 @@ keep as simple as possible. depends on the follow factors:
 
 ## Reactive Programming
 
+Computation based on the asynchronous data streams, a generalization of Key-Value Observing(KVO).
+
+* [RxSwift](https://github.com/ReactiveX/RxSwift)
+
 ## Memory Management
 
 [Memory management](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/MemoryManagement.html) in a Cocoa application that doesn’t use garbage collection is based on a reference counting model. When you create or copy an object, its retain count is 1. Thereafter other objects may express an ownership interest in your object, which increments its retain count. The owners of an object may also relinquish their ownership interest in it, which decrements the retain count. When the retain count becomes zero, the object is deallocated (destroyed).
