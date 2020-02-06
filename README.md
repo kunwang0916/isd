@@ -1,17 +1,17 @@
 ## Topics
 
 * [Architecture](#Architecture)
-* [Design Pattern](#Design-Pattern)
-* [UI](#UI)
+* [Design Pattern](#Design-Pattern) 🔜
+* [UI](#UI) 🔜
 * [Networking](#Networking)
 * [Communications Patterns](#Communications-Patterns)
 * [Reactive Programming](#Reactive-Programming)
 * [Memory Management](#Memory-Management)
-* [Concurrency](#Concurrency)
-* [Persist Data](#Persist-Data)
-* [Debug](#Debug)
-* [Languages](#Languages)
-* [Others](#Other)
+* [Concurrency](#Concurrency) 🔜
+* [Persist Data](#Persist-Data) 🔜
+* [Debug](#Debug) 🔜
+* [Languages](#Languages) 🔜
+* [Others](#Other) 🔜
 
 ## Architecture
 
