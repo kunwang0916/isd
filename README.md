@@ -8,7 +8,7 @@
 * [Reactive Programming](#Reactive-Programming)
 * [Memory Management](#Memory-Management)
 * [Concurrency](#Concurrency) 🔜
-* [Persist Data](#Persist-Data) 🔜
+* [Persist Data](#Persist-Data) 
 * [Debug](#Debug) 🔜
 * [Languages](#Languages) 🔜
 * [Others](#Other) 🔜
@@ -251,6 +251,45 @@ Both GC and ARC aim to free developer from memory management, though **it doesn'
 ## Concurrency
 
 ## Persist-Data
+
+### UserDefault
+
+* based on Property list.
+* good for small amount of data.
+* ex: save user performance setting.
+  * push on/off
+  * language preference
+
+* Cons:
+  * Save/Load while file, disk IO performance issue for large amount data.
+  * max 4GB
+
+### SQLite
+
+lightweight embebded Relations Database.
+
+### CoreData
+
+### Keychain
+
+sensitive data storage.
+
+* password
+* secret code
+
+### Pure File
+
+only save in application sandbox directory.
+
+* Documents:
+  * user generated content
+  * iCloud backup support
+* Library:
+  * save data betweeen application launch.
+  * will be deleted when disk space is low.
+* tmp:
+  * for temporarily storage.
+  * will be deleted by OS when app not running.
 
 ## Debug
 
