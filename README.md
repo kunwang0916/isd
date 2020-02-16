@@ -2,12 +2,12 @@
 
 * [Architecture](#Architecture)
 * [Design Pattern](#Design-Pattern) 🔜
-* [UI](#UI) 🔜
+* [UI](#UI)
 * [Networking](#Networking)
 * [Communications Patterns](#Communications-Patterns)
 * [Reactive Programming](#Reactive-Programming)
 * [Memory Management](#Memory-Management)
-* [Concurrency](#Concurrency) 🔜
+* [Concurrency](#Concurrency)
 * [Persist Data](#Persist-Data)
 * [Debug](#Debug) 🔜
 * [Languages](#Languages) 🔜
@@ -65,6 +65,16 @@ MVC, MVP, MVI, MVVM and VIPER are architecture patterns. RIBs is a framework. Wh
 * Independent business logic and view trees. RIBs decouple how the business logic scopes are structured from view hierarchies. This allows the application to have a deep business logic tree, isolating business logic nodes, while maintaining a shallow view hierarchy making layouts, animations and transitions easy.
 
 ## Design Pattern
+
+### Delegation **TODO**
+
+### Singleton **TODO**
+
+### Lazy initialization **TODO**
+
+### Factroy **TODO**
+
+### Builder **TODO**
 
 ## UI
 
@@ -373,6 +383,32 @@ only save in application sandbox directory.
 ## Languages
 
 ### Swift
+
+#### Struct vs Class
+
+* Struct
+  * value type
+  * immuatable by default
+* Class
+  * reference type
+  * muatable by default
+  * inheritance
+
+#### Enum **TODO**
+
+* Associaating Values
+  
+  * can bind value to a enum
+  * apply the generic
+
+* Raw type enum
+
+#### Generic
+```swift
+func concat<T>(a: T, b: T)-> [T] {
+  return [a, b]
+}
+```
 
 ### Objective-C
 
