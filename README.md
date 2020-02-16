@@ -396,17 +396,54 @@ only save in application sandbox directory.
 
 #### Enum **TODO**
 
-* Associaating Values
+* Associating Values
   
   * can bind value to a enum
   * apply the generic
 
+  ```swift
+  enum Barcode {
+    case upc(Int, Int, Int, Int)
+    case qrCode(String)
+  }
+  ```
+
 * Raw type enum
 
 #### Generic
+
 ```swift
 func concat<T>(a: T, b: T)-> [T] {
   return [a, b]
+}
+```
+
+* Associate Type
+
+  An associated type gives a placeholder name to a type that is used as part of the protocol.
+
+  Here’s an example of a protocol called Container, which declares an associated type called Item:
+
+```swift
+protocol Container {
+    associatedtype Item
+    mutating func append(_ item: Item)
+    var count: Int { get }
+    subscript(i: Int) -> Item { get }
+}
+```
+
+#### Failable Initializer
+
+A failable initializer creates an optional value of the type it initializes. You write return nil within a failable initializer to indicate a point at which initialization failure can be triggered.
+
+```swift
+struct Animal {
+    let species: String
+    init?(species: String) {
+        if species.isEmpty { return nil }
+        self.species = species
+    }
 }
 ```
 
