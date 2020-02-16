@@ -8,7 +8,7 @@
 * [Reactive Programming](#Reactive-Programming)
 * [Memory Management](#Memory-Management)
 * [Concurrency](#Concurrency) 🔜
-* [Persist Data](#Persist-Data) 
+* [Persist Data](#Persist-Data)
 * [Debug](#Debug) 🔜
 * [Languages](#Languages) 🔜
 * [Others](#Other) 🔜
@@ -67,6 +67,41 @@ MVC, MVP, MVI, MVVM and VIPER are architecture patterns. RIBs is a framework. Wh
 ## Design Pattern
 
 ## UI
+
+### .frame vs .bounds
+
+* frame: rectangle relative to the location of super-view.
+* bounds: rectangle relative to the location of its own coordinate system.
+
+### StoryBoard vs XIB vs Code
+
+* Storyboard
+  * Pros
+    * straighforward for navigations between pages
+    * mock up workflow without any codde.
+  * Cons
+    * change management.
+    * hard for teamwork on same page.
+
+* XIB
+  * Pros
+    * make UI fast
+    * modular
+    * visiable
+  * Cons
+    * change management.
+    * xib loading, analyzing, and parsing will have a performance impact.
+    * hard to debug.
+    * lack of customizations.
+
+* Code
+  * Pros
+    * flexibility
+    * Performance
+    * easy to control change, team work.
+  * Cons
+    * hard to visualize.
+    * more time-consuming for development.
 
 ## Networking
 
@@ -250,6 +285,36 @@ Both GC and ARC aim to free developer from memory management, though **it doesn'
 
 ## Concurrency
 
+The trade-off between performance and complexity.
+
+### Treads
+
+developer needs to manage the threads, flexibility vs complexity.
+
+* total number of threads
+* adjuct the number manually
+
+### Dispatch queues
+
+GCD (Grand Central Dispatch)
+
+* FIFO order (Serial queue and Concurrency Queue)
+* low level API
+* delegate thread management to system level, developer focus on define the task that must be executed and add them to the dispatch queue. make life easier.
+
+### Operation queues
+
+* high level abstraction of the Queue Model (based on the GCD).
+* Object-Oriented
+* Not in FIFO order
+* [NSOperation](https://developer.apple.com/documentation/foundation/nsoperation?language=objc) and [NSOperationQueue](https://developer.apple.com/documentation/foundation/nsoperationqueue)
+
+#### Pros
+
+* support dependency between tasks, allow to config order of execution.
+* change the execution priority
+* suppot Cancellation of opertation or queue.
+
 ## Persist-Data
 
 ### UserDefault
@@ -269,6 +334,18 @@ Both GC and ARC aim to free developer from memory management, though **it doesn'
 lightweight embebded Relations Database.
 
 ### CoreData
+
+Apple's Persistency framework.not just a database but a solution for Model layer management of application.
+
+* Object-graph for visualized relationship between models.
+* Concurrency Management
+  * processing huge data set in the background thread
+  * Tread safe
+* Fetch, sort, filter, group by.
+* Data cache
+* Input validataion
+* data model versioning
+* change tracking.
 
 ### Keychain
 
