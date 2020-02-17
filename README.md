@@ -78,6 +78,10 @@ MVC, MVP, MVI, MVVM and VIPER are architecture patterns. RIBs is a framework. Wh
 
 ## UI
 
+### UITableView vs UICollectionView
+
+it's flexibility vs complexity question. it really depends on the requirements. while UICollectionView can do all the UITableView can do and even more, UICollectionView will introduce more complexity in the code. it's always a trade-off, but we should be as simple as possible.
+
 ### .frame vs .bounds
 
 * frame: rectangle relative to the location of super-view.
